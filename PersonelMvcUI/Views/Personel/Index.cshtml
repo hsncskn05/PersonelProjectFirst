@@ -1,0 +1,42 @@
+﻿
+@model List<PersonelMvcUI.Models.EntityFramework.Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Personel Listesi</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th align="center">Ad</th>
+            <th align="center">Soyad</th>
+            <th>Departman</th>
+            <th align="center">Maaş</th>
+            <th>Yaş</th>
+            <th align="center">Doğum Tarihi</th>
+            <th align="center">Cinsiyet</th>
+            <th align="center">Evlilik Durumu</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var personel in Model)
+        {
+            <tr>
+                <td>@personel.Ad</td>
+                <td>@personel.Soyad</td>
+                <td>@personel.Departman.Ad</td>
+                <td>@personel.Maas</td>
+                <td>@(DateTime.Now.Year-personel.DogumTarih.Value.Year)</td>
+                <td>@personel.DogumTarih.Value.ToString("dd-MM-yyyy")</td>
+                <td>@(personel.Cinsiyet==true ?  "Erkek" : "Kadın")</td>
+                <td>@(personel.EvliMi==true ? "Erkek" : "Kadın")</td>
+            </tr>
+        }
+
+
+    </tbody>
+    
+</table>
