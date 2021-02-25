@@ -10,7 +10,7 @@
 <h2>Departman Listesi</h2>
 
 
-<table class="table table-bordered">
+<table class="table table-bordered" id="tblDepartman">
     <thead>
         <tr>
             <th>Id</th>
@@ -26,7 +26,7 @@
             <td>@departman.Id</td>
             <td>@departman.Ad</td>
             <td align="center" width="50px"><a class="btn btn-primary"  href="/Departman/Guncelle/@departman.Id">Güncelle</a></td>
-            <td align="center" width="50px"><a class="btn btn-warning" href="/Departman/Sil/@departman.Id">Sil</a></td>
+            <td align="center" width="50px"><a class="btn btn-warning btnDepartmanSil"  data-id="@departman.Id" >Sil</a></td>
         </tr>
         }
 

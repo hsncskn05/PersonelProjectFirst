@@ -24,7 +24,7 @@ namespace PersonelMvcUI.Controllers
             
             return View("DepartmanForm",new Departman());
         }
-        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Kaydet(Departman departman)
         {
             if (!ModelState.IsValid)
