@@ -18,22 +18,26 @@
             <th align="center">Doğum Tarihi</th>
             <th align="center">Cinsiyet</th>
             <th align="center">Evlilik Durumu</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
         </tr>
     </thead>
     <tbody>
 
         @foreach (var personel in Model)
         {
-            <tr>
-                <td>@personel.Ad</td>
-                <td>@personel.Soyad</td>
-                <td>@personel.Departman.Ad</td>
-                <td>@personel.Maas</td>
-                <td>@(DateTime.Now.Year-personel.DogumTarih.Value.Year)</td>
-                <td>@personel.DogumTarih.Value.ToString("dd-MM-yyyy")</td>
-                <td>@(personel.Cinsiyet==true ?  "Erkek" : "Kadın")</td>
-                <td>@(personel.EvliMi==true ? "Erkek" : "Kadın")</td>
-            </tr>
+        <tr>
+            <td>@personel.Ad</td>
+            <td>@personel.Soyad</td>
+            <td>@personel.Departman.Ad</td>
+            <td>@personel.Maas.Value.ToString("N")</td>
+            <td>@(DateTime.Now.Year-personel.DogumTarih.Value.Year)</td>
+            <td>@personel.DogumTarih.Value.ToString("dd-MM-yyyy")</td>
+            <td>@(personel.Cinsiyet==true ?  "Erkek" : "Kadın")</td>
+            <td>@(personel.EvliMi==true ? "Evli" : "Bekar")</td>
+            <td>@Html.ActionLink("Güncelle", "Guncelle", new { id = personel.Id }, new { @class = "btn btn-success" })</td>
+            <td>@Html.ActionLink("Sil", "Sil", new { id = personel.Id }, new { @class = "btn btn-danger" })</td>
+        </tr>
         }
 
 
