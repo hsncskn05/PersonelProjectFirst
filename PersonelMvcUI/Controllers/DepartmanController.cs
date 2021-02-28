@@ -7,11 +7,12 @@ using System.Web.Mvc;
 
 namespace PersonelMvcUI.Controllers
 {
+    [Authorize(Roles = "A,U")]
     public class DepartmanController : Controller
     {
         PersonelDbEntities db = new PersonelDbEntities();
         // GET: Departman
-      
+        
         public ActionResult Index()
         {
             var model = db.Departman.ToList();

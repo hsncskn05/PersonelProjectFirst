@@ -13,12 +13,13 @@ namespace PersonelMvcUI.Controllers
     {
         PersonelDbEntities db = new PersonelDbEntities();
         // GET: Personel
+        [Authorize(Roles = "A,U")]
         public ActionResult Index()
         {
             var model = db.Personel.ToList();
             return View(model);
         }
-
+       
         public ActionResult Yeni()
         {
             PersonelFormViewModel model = new PersonelFormViewModel();
@@ -70,6 +71,12 @@ namespace PersonelMvcUI.Controllers
             db.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult PersonelleriListele(int id)
+        {
+            var model = db.Personel.Where(x => x.DepartmanId == id).ToList();
+            return PartialView(model);
         }
     }
 }

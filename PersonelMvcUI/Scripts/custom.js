@@ -1,5 +1,10 @@
 ﻿
 $(function () {
+    $("#tblDepartman").DataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+        }
+    });
     $("#tblDepartman").on("click", ".btnDepartmanSil", function () {
         var btn = $(this);
         bootbox.confirm("Departmanı silmek istediğinize Emin misiniz ", function (result) {

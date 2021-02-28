@@ -1,0 +1,48 @@
+﻿@model PersonelMvcUI.Models.EntityFramework.Kullanıcı
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <br /><br /><br />
+    <h2 style="text-align:center">Lütfen Giriş yapınız ..</h2>
+   
+    @using (Html.BeginForm("Login", "Security", FormMethod.Post))
+    {
+        <div class="container col-md-12">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 table-bordered center-block top">
+                <br /><br /><br />
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Ad)
+                    @Html.TextBoxFor(m => m.Ad, new { @class = "form-control", placeholder = "Kullanıcı Adı" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Sifre)
+                    @Html.PasswordFor(m => m.Sifre, new { @class = "form-control", placeholder = "Parola" })
+                </div>
+                <br /><br />
+                <button type="submit" class="btn btn-block btn-success ">Giriş Yap</button>
+                <br /><br /><br />
+                <span style="color:red">@ViewBag.Message</span>
+                <br />
+            </div>
+
+
+        </div>
+
+
+    }
+
+
+</body>
+</html>

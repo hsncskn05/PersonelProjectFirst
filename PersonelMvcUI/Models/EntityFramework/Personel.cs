@@ -11,32 +11,16 @@ namespace PersonelMvcUI.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Personel
     {
         public int Id { get; set; }
-        [Required(ErrorMessage ="Ad Alaný zorunludur")]
         public string Ad { get; set; }
-        [Required(ErrorMessage = "Soyad Alaný zorunludur")]
         public string Soyad { get; set; }
-
-        [Display(Name = "Maaþ")]
-        [Required(ErrorMessage ="Maaþ Alaný zorunludur")]
-        [Range(10,8000,ErrorMessage ="Maaþ alaný 10 ile 8000 arasýnda olmalýdýr")]
         public Nullable<short> Maas { get; set; }
-
-        [Display(Name = "Doðum Tarihi")]
-        [Required(ErrorMessage ="Doðum Tarihi Seçiniz")]
         public Nullable<System.DateTime> DogumTarih { get; set; }
-        [Required(ErrorMessage = "Cinsiyet Seçiniz")]
         public bool Cinsiyet { get; set; }
-
-        [Display(Name = "Evlilik Durumu")]
         public bool EvliMi { get; set; }
-
-        [Display(Name ="Departman Adý")]
-        [Required(ErrorMessage ="Lütfen bir departman Seçiniz")]
         public Nullable<int> DepartmanId { get; set; }
     
         public virtual Departman Departman { get; set; }

@@ -17,6 +17,7 @@
             <th>Ad</th>
             <th>Güncelle</th>
             <th>Sil</th>
+            <th>Personeller</th>
         </tr>
     </thead>
     <tbody>
@@ -25,8 +26,11 @@
         <tr>
             <td>@departman.Id</td>
             <td>@departman.Ad</td>
-            <td align="center" width="50px"><a class="btn btn-primary"  href="/Departman/Guncelle/@departman.Id">Güncelle</a></td>
-            <td align="center" width="50px"><a class="btn btn-warning btnDepartmanSil"  data-id="@departman.Id" >Sil</a></td>
+            <td align="center" width="50px"><a class="btn btn-primary" href="/Departman/Guncelle/@departman.Id">Güncelle</a></td>
+            <td align="center" width="50px"><a class="btn btn-warning btnDepartmanSil" data-id="@departman.Id">Sil</a></td>
+            @*<td align="center" width="50px">@Html.ActionLink("Personelleri Göster","PersonelleriListele","Personel",new { id = departman.Id },new { @class="btn btn-primary"})</td>*@
+            <td align="center" width="50px">@Ajax.ActionLink("Personelleri Göster", "PersonelleriListele", "Personel", new { id = departman.Id },
+                                           new AjaxOptions { HttpMethod="GET"},new { @class="btn btn-primary"})</td>
         </tr>
         }
 
